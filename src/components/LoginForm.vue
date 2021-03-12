@@ -85,7 +85,7 @@ h1{
   color: #fff;
   cursor: pointer;
   margin-top: 20px;
-  background-color: #101321;
+  background-color: brown;
   transition: background 0.4s ease;
 }
 

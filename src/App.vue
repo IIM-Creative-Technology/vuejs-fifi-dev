@@ -2,9 +2,9 @@
   <div id="app">
     <section class="container">
     <div id="nav">
-      <router-link to="/admin">Gérer le blog</router-link> |
-      <router-link to="/blog">Blog</router-link> |
-      <router-link to="/login">Login</router-link>
+      <router-link :to="{name: 'Admin'}">Gérer le blog</router-link> |
+      <router-link :to="{name: 'Blog'}">Blog</router-link> |
+      <router-link :to="{name: 'Login'}">Login</router-link>
     </div>
     <router-view />
     <div id="footer">
