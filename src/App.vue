@@ -2,7 +2,7 @@
   <div id="app">
     <section class="container">
     <div id="nav">
-      <router-link to="/admin">Gerer le blog</router-link> |
+      <router-link to="/admin">Gérer le blog</router-link> |
       <router-link to="/blog">Blog</router-link> |
       <router-link to="/login">Login</router-link>
     </div>
@@ -21,7 +21,6 @@
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
 }
 
@@ -33,10 +32,12 @@
 #nav a {
   font-weight: bold;
   color: #2c3e50;
+  text-decoration: none;
 }
 
 #nav a.router-link-exact-active {
-  color: #42b983;
+  border-bottom: 5px solid black;
+  padding-bottom: 6px;
 }
 
 #footer{
