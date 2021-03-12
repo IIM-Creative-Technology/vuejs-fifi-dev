@@ -12,7 +12,7 @@
           placeholder="Password"/>
           <button class="login">Login</button>
           <div class="sign-up">
-            <a href="register.html">S'inscrire</a>
+            <a href="#">S'inscrire</a>
           </div>
         </form>
       </div>
