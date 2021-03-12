@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="admin">
       <edit-post-list></edit-post-list>
   </div>
 </template>
@@ -9,7 +9,7 @@
 import EditPostList from "@/components/EditPostList.vue";
 
 export default {
-  name: "Home",
+  name: "Admin",
   components: {
     EditPostList
   }
