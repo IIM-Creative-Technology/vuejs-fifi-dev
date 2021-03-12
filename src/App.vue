@@ -3,7 +3,7 @@
     <section class="container">
     <div id="nav">
       <router-link to="/admin">Gerer le blog</router-link> |
-      <router-link to="/">Home</router-link> |
+      <router-link to="/blog">Blog</router-link> |
       <router-link to="/about">About</router-link>
     </div>
     <router-view />

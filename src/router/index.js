@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Admin from "../views/Admin.vue";
+import Blog from "../views/Blog.vue";
 
 Vue.use(VueRouter);
 
@@ -16,6 +17,12 @@ const routes = [
     path: "/admin",
     name: "Admin",
     component: Admin
+  },
+  //route vers la page blog
+  {
+    path: "/blog",
+    name: "Blog",
+    component: Blog
   },
   {
     path: "/about",
