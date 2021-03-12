@@ -114,8 +114,10 @@ li a{
   width: 80%;
   margin: 0px auto;
   display: flex;
+  color: white;
   justify-content: space-around;
-  border: 5px solid white;
+  border: 5px solid black;
+  background: brown;
   padding: 5px 10px;
 }
 

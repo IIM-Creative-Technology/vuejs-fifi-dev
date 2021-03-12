@@ -2,22 +2,15 @@
   <div class="post-list">
       <div class="card">
       <div class="card-header">
-        <!-- Image of the Post -->
         <img src="@/assets/img/sample.jpg" alt="ordinateur ">
       </div>
       <div class="card-body">
-        <!-- Title of the post -->
-        <h1>The title</h1>
-        <!-- content of the post -->
+        <p class="date">Posté le 9 mars 2021</p>
+        <a href="#"><h1>The title</h1></a>
         <p class="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio hic provident odio natus aperiam iste ipsa ad quae, aspernatur magni impedit voluptatibus omnis molestiae praesentium temporibus nulla corporis modi tenetur!</p>
         <hr>
-        <!-- author details-->
-        <div class="author">
-          <!-- date -->
-          <p class="date">Posté le 9 mars 2021</p>
-          <!-- author id -->
-          <p class="creator">Par Author</p>
-        </div>
+        <p class="author">By Author</p>
+        <a href="#">Consulter <i class="fas fa-long-arrow-alt-right"></i></a>
       </div>
     </div>
   </div>
@@ -31,14 +24,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
-
-.author{
-  display: flex;
+.date{
+  text-align: right;
 }
 
-.creator{
-  margin-left: 10px;
+.card-header{
+    width: 600px;
 }
 
 </style>
