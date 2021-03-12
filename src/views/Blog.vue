@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="Blog">
       <post-list></post-list>
   </div>
 </template>
@@ -9,7 +9,7 @@
 import PostList from "@/components/PostList.vue";
 
 export default {
-  name: "Home",
+  name: "Blog",
   components: {
     PostList
   }
