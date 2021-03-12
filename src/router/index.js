@@ -4,6 +4,7 @@ import Home from "../views/Home.vue";
 import Admin from "../views/Admin.vue";
 import Blog from "../views/Blog.vue";
 import Login from "../views/Login.vue";
+import Missing from "../views/Missing.vue";
 
 Vue.use(VueRouter);
 
@@ -30,6 +31,12 @@ const routes = [
     path: "/login",
     name: "Login",
     component: Login
+  },
+  
+  //route vers la page blog
+  {
+    path: '*',
+    component: Missing
   },
 ];
 
