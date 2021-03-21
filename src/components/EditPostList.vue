@@ -1,7 +1,7 @@
 <template>
   <div class="edit-post-list">
        <edit-post></edit-post>
-           <edit-post-item v-for="post in postsFiltered" :key="post.id" :post="post" :checkAll="!anyRemaining"></edit-post-item>
+    <edit-post-item v-for="post in postsFiltered" :key="post.id" :post="post" :checkAll="!anyRemaining"></edit-post-item>
   </div>
 </template>
 

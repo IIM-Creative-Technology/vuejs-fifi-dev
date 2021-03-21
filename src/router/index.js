@@ -4,6 +4,7 @@ import Home from "../views/Home.vue";
 import Admin from "../views/Admin.vue";
 import Blog from "../views/Blog.vue";
 import Login from "../views/Login.vue";
+import Register from "../views/Register.vue";
 import Missing from "../views/Missing.vue";
 
 Vue.use(VueRouter);
@@ -31,6 +32,13 @@ const routes = [
     path: "/login",
     name: "Login",
     component: Login
+  },
+  
+  //route vers la page d'inscription
+  {
+    path: "/register",
+    name: "Register",
+    component: Register
   },
   
   //route vers la page 404

@@ -15,7 +15,7 @@
           placeholder="Password"/>
           <button class="login">Login</button>
           <div class="sign-up">
-            <a href="#">Se connecter</a>
+            <a href="/login">Se connecter</a>
           </div>
         </form>
       </div>
