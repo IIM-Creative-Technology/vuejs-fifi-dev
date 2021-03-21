@@ -3,13 +3,13 @@
       <div class="card">
       <div class="card-header">
         <!-- Image of the Post -->
-        <img src="@/assets/img/sample.jpg" alt="ordinateur ">
+        <img :src="image" alt="ordinateur ">
       </div>
       <div class="card-body">
         <!-- Title of the post -->
-        <h1>The title</h1>
+        <h1 v-if="!editing" @dblclick="EditPost" :class="{ completed : completed }">{{ title }}</h1>
         <!-- content of the post -->
-        <p class="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio hic provident odio natus aperiam iste ipsa ad quae, aspernatur magni impedit voluptatibus omnis molestiae praesentium temporibus nulla corporis modi tenetur!</p>
+        <p class="content">{{ description }}</p>
         <hr>
         <!-- author details-->
         <div class="author">
@@ -27,7 +27,7 @@
         </div>
         <!-- delete Button-->
         <div class="deleteButton">
-          <button>Supprimer</button>
+          <button @click="removePost(post.id)">Supprimer</button>
         </div>
       </div>
     </div>
@@ -36,7 +36,71 @@
 
 <script>
 export default {
-    //
+  name: 'edit-post-item',
+  props: {
+    post: {
+      type: Object,
+      required: true,
+    },
+    checkAll: {
+      type: Boolean,
+      required: true,
+    }
+  },
+  data() {
+    return {
+        'id': this.post.id,
+        'title': this.post.title,
+        'mtitle': this.post.mtitle,
+        'image': this.post.image,
+        'description': this.post.description,
+        'body': this.post.body,
+        'completed': this.post.completed,
+      'editing': this.post.editing,
+      'beforeEditCache': '',
+    }
+  },
+  watch: {
+    checkAll() {
+      this.completed = this.checkAll ? true : this.post.completed
+    }
+  },
+  directives: {
+    focus: {
+      inserted: function (el) {
+        el.focus()
+      }
+    }
+  },
+  methods: {
+    removePost(id) {
+      this.$store.dispatch('deletePost', id)
+    },
+    editPost() {
+      this.beforeEditCache = this.title
+      this.editing = true
+    },
+    doneEdit() {
+      if (this.title.trim() == '') {
+        this.title = this.beforeEditCache
+      }
+      this.editing = false
+      this.$store.dispatch('updatePost', {
+        'id': this.id,
+        'title': this.title,
+        'mtitle': this.mtitle,
+        'image': this.image,
+        'description': this.description,
+        'body': this.body,
+        'completed': this.completed,
+      'editing': this.editing,
+      })
+    },
+    cancelEdit() {
+      this.title = this.beforeEditCache
+      this.editing = false
+    },
+  }
 }
 </script>
 

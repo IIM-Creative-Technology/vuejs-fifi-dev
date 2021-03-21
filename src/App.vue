@@ -112,7 +112,7 @@ li a{
 /* CARD */
 .card{
   width: 80%;
-  margin: 0px auto;
+  margin: 20px auto;
   display: flex;
   color: white;
   justify-content: space-around;

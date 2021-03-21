@@ -118,6 +118,7 @@ export default new Vuex.Store({
         title: post.title,
         mtitle: post.mtitle,
         image: post.image,
+        description : post.description,
         body: post.body,
       })
     },
@@ -128,6 +129,7 @@ export default new Vuex.Store({
         'title': post.title,
         'mtitle': post.mtitle,
         'image': post.image,
+        'description': post.description,
         'body': post.body,
       })
     },
