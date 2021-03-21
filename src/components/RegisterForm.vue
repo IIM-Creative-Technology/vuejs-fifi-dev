@@ -2,7 +2,7 @@
   <div class="register-form">
       <div class="cont">
       <div class="form">
-        <form @submit.prevent="handleSubmit">
+        <form @submit.prevent="handleSubmit()">
           <h1>Login</h1>
           <input type="text"
           class="user"
@@ -20,7 +20,7 @@
           class="pass"
           v-model="password_confirm"
           placeholder=" confirmer mot de passe"/>
-          <button class="login">Login</button>
+          <button @click="handleSubmit()"  class="login">Login</button>
           <div class="sign-up">
             <a href="/login">Se connecter</a>
           </div>
@@ -31,6 +31,9 @@
 </template>
 
 <script>
+
+import axios from 'axios'
+
 export default {
     name: 'register-form',
 
@@ -44,14 +47,14 @@ export default {
     },
 
     methods: {
-      handleSubmit(){
-        const data = {
+      async handleSubmit(){
+        const response = await axios.post("register", {
           username: this.username,
           email: this.email,
           password: this.password,
           password_confirm: this.password_confirm,
-        };
-        console.log(data);
+        });
+        console.log(response);
       }
     }
 }
