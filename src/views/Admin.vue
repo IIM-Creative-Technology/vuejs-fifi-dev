@@ -1,7 +1,8 @@
 <template>
   <div class="admin">
-     <edit-post></edit-post>
       <edit-post-list></edit-post-list>
+      <edit-post></edit-post>
+      <new-post></new-post>
   </div>
 </template>
 
@@ -9,12 +10,14 @@
 // @ is an alias to /src
 import EditPostList from "@/components/EditPostList.vue";
 import EditPost from "@/components/EditPost.vue";
+import NewPost from '../components/NewPost.vue';
 
 export default {
   name: "Admin",
   components: {
     EditPostList,
-    EditPost
+    EditPost,
+    NewPost
   }
 };
 </script>

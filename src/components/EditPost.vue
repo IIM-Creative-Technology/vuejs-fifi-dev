@@ -1,6 +1,6 @@
 <template>
   <div class="edit-post">
-      <h1>Creer une nouvelle page de blog</h1>
+      <h1>Modifier le post</h1>
     <div class="editPanel">
       <form action="">
         <div class="panel-header">
