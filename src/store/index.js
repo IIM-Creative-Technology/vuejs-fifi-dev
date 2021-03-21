@@ -1,10 +1,12 @@
 import Vue from "vue";
 import Vuex from "vuex";
 
+
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    filter: 'all',
     posts: [
       {
         id: 1,
@@ -89,18 +91,90 @@ export default new Vuex.Store({
     ],
   },
   getters: {
-    allPosts : (state) => state.posts,
-  },
-  actions: {
-    addPost({ commit }, post){
-      commit ("add_post", post);
+    remaining(state) {
+      return state.posts.filter(post => !post.completed).length
+    },
+    anyRemaining(state, getters) {
+      return getters.remaining != 0
+    },
+    postsFiltered(state) {
+      if (state.filter == 'all') {
+        return state.posts
+      } else if (state.filter == 'active') {
+        return state.posts.filter(post => !post.completed)
+      } else if (state.filter == 'completed') {
+        return state.posts.filter(post => post.completed)
+      }
+      return state.posts
+    },
+    showClearCompletedButton(state) {
+      return state.posts.filter(post => post.completed).length > 0
     }
   },
   mutations: {
-    add_post(state, post) {
-      state.posts.push(post);
-      console.log(state.todos);
+    addPost(state, post) {
+      state.posts.push({
+        id: post.id,
+        title: post.title,
+        mtitle: post.mtitle,
+        image: post.image,
+        body: post.body,
+      })
+    },
+    updatePost(state, post) {
+      const index = state.posts.findIndex(item => item.id == post.id)
+      state.posts.splice(index, 1, {
+        'id': post.id,
+        'title': post.title,
+        'mtitle': post.mtitle,
+        'image': post.image,
+        'body': post.body,
+      })
+    },
+    deletePost(state, id) {
+      const index = state.posts.findIndex(item => item.id == id)
+      state.posts.splice(index, 1)
+    },
+    checkAll(state, checked) {
+      state.posts.forEach(post => (post.completed = checked))
+    },
+    updateFilter(state, filter) {
+      state.filter = filter
+    },
+    clearCompleted(state) {
+      state.posts = state.posts.filter(post => !post.completed)
     }
   },
-  modules: {}
+  actions: {
+    addPost(context, post) {
+      setTimeout(() => {
+        context.commit('addPost', post)
+      }, 100)
+    },
+    updatePost(context, post) {
+      setTimeout(() => {
+        context.commit('updatePost', post)
+      }, 100)
+    },
+    deletePost(context, id) {
+      setTimeout(() => {
+        context.commit('deletePost', id)
+      }, 100)
+    },
+    checkAll(context, checked) {
+      setTimeout(() => {
+        context.commit('checkAll', checked)
+      }, 100)
+    },
+    updateFilter(context, filter) {
+      setTimeout(() => {
+        context.commit('updateFilter', filter)
+      }, 100)
+    },
+    clearCompleted(context) {
+      setTimeout(() => {
+        context.commit('clearCompleted')
+      }, 100)
+    }
+  }
 });

@@ -4,13 +4,16 @@
       <div class="form">
         <form action="">
           <h1>Login</h1>
-          <input type="text"
+          <v-alert color="error" :value="error">
+            Le mot de passe ou le nom d'utilisateur est incorect
+          </v-alert>
+          <input v-model="username" type="text"
           class="user"
           placeholder="Username"/>
-          <input type="password"
+          <input v-model="password" type="password"
           class="pass"
           placeholder="Password"/>
-          <button class="login">Login</button>
+          <button @click.prevent="login()" class="login">Login</button>
           <div class="sign-up">
             <a href="#">S'inscrire</a>
           </div>
@@ -22,7 +25,20 @@
 
 <script>
 export default {
-    //
+    name: "login",
+    data: () => ({
+      username: '',
+      password: '',
+      error: false
+    }),
+    methods : {
+      login() {
+        this.$store.dispatch("LOGIN", {
+          _username: this.username,
+          _password: this.password
+        })
+      }
+    }
 }
 </script>
 
