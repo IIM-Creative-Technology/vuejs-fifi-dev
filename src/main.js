@@ -1,7 +1,7 @@
 import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
-import axiox from 'axios';
+import axios from 'axios'
 import store from "./store";
 import Vuesax from 'vuesax'
 import 'vuesax/dist/vuesax.css'
@@ -10,7 +10,7 @@ import 'vuesax/dist/vuesax.css'
 Vue.config.productionTip = false;
 
 
-axios.defaults.baseUrl = 'http://localhost:8080/api/';
+axios.defaults.baseUrl = 'http://localhost:8080/';
 
 Vue.use(Vuesax, {})
 

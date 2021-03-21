@@ -1,5 +1,6 @@
 <template>
   <div class="post-list">
+    <post-card v-for="post in postsFiltered" :key="post.id" :post="post" :checkAll="!anyRemaining"></post-card>
       <div class="card">
       <div class="card-header">
         <img src="@/assets/img/sample.jpg" alt="ordinateur ">
@@ -17,8 +18,39 @@
 </template>
 
 <script>
+import PostCard from './PostCard.vue'
 export default {
-    //
+  name: 'edit-post-list',
+  components: {
+    PostCard
+  },
+  data() {
+    return {
+      newPost: '',
+      idForPost: 3,
+    }
+  },
+  computed: {
+    anyRemaining() {
+      return this.$store.getters.anyRemaining
+    },
+    postsFiltered() {
+      return this.$store.getters.postsFiltered
+    }
+  },
+  methods: {
+    addPost() {
+      if (this.newPost.trim().length == 0) {
+        return
+      }
+      this.$store.dispatch('addPost', {
+        id: this.idForPost,
+        title: this.newPost,
+      })
+      this.newPos = ''
+      this.idForPost++
+    },
+  }
 }
 </script>
 
@@ -29,7 +61,7 @@ export default {
 }
 
 .card-header{
-    width: 600px;
+    width: 500px;
 }
 
 </style>
