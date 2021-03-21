@@ -5,7 +5,7 @@
       <form action="">
         <div class="panel-header">
           <div class="seoData">
-            <input type="text"
+            <inpu type="text"
             class="input"
             placeholder="Titre.." id="title"/>
             <input type="text"
@@ -16,7 +16,11 @@
             placeholder="Meta Desciprion"/>
           </div>
           <div class="postImg">
-            <div class="imgUpload"></div>
+            <div class="imgUpload">
+                <input type="text"
+            class="input"
+            placeholder="url de l'image"/>
+            </div>
             <p>Ajouter une image</p>
           </div>
         </div>
@@ -27,7 +31,7 @@
           </div>
         </div>
         <div class="panel-footer">
-          <button type="button" name="button">Créer La page</button>
+          <button @click="addTodo('23')" type="button" name="button">Créer le post</button>
         </div>
       </form>
     </div>
@@ -36,7 +40,7 @@
 
 <script>
 export default {
-    //
+   //
 }
 </script>
 

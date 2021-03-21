@@ -27,7 +27,7 @@
           </div>
         </div>
         <div class="panel-footer">
-          <button type="button" name="button">Créer La page</button>
+          <button type="button" name="button">Modifier Le post</button>
         </div>
       </form>
     </div>

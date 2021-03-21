@@ -1,8 +1,7 @@
 <template>
-  <div class="admin">
+  <div class="admin"><new-post></new-post>
       <edit-post-list></edit-post-list>
       <edit-post></edit-post>
-      <new-post></new-post>
   </div>
 </template>
 

@@ -99,6 +99,7 @@ export default new Vuex.Store({
   mutations: {
     add_post(state, post) {
       state.posts.push(post);
+      console.log(state.todos);
     }
   },
   modules: {}
