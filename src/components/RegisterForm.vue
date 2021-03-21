@@ -2,17 +2,24 @@
   <div class="register-form">
       <div class="cont">
       <div class="form">
-        <form action="">
+        <form @submit.prevent="handleSubmit">
           <h1>Login</h1>
           <input type="text"
           class="user"
-          placeholder="name"/>
+          v-model="username"
+          placeholder="username"/>
           <input type="email"
           class="user"
+          v-model="email"
           placeholder="E-mail"/>
           <input type="password"
           class="pass"
-          placeholder="Password"/>
+          v-model="password"
+          placeholder="mot de passe"/>
+          <input type="password"
+          class="pass"
+          v-model="password_confirm"
+          placeholder=" confirmer mot de passe"/>
           <button class="login">Login</button>
           <div class="sign-up">
             <a href="/login">Se connecter</a>
@@ -25,7 +32,28 @@
 
 <script>
 export default {
-    //
+    name: 'register-form',
+
+    data() {
+      return {
+        username: '',
+        email: '',
+        password: '',
+        password_confirm: '',
+      }
+    },
+
+    methods: {
+      handleSubmit(){
+        const data = {
+          username: this.username,
+          email: this.email,
+          password: this.password,
+          password_confirm: this.password_confirm,
+        };
+        console.log(data);
+      }
+    }
 }
 </script>
 
