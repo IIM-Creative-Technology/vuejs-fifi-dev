@@ -33,7 +33,7 @@ const routes = [
     component: Login
   },
   
-  //route vers la page blog
+  //route vers la page 404
   {
     path: '*',
     component: Missing
